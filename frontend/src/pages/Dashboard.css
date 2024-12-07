@@ -1,0 +1,26 @@
+h2{
+  margin-left: 20px;
+}
+p{
+  margin-left: 20px;
+}
+.main-content {
+    padding: 20px;
+    transition: margin-left 0.3s;
+    color: var(--brand-text-color);
+  }
+  
+  .main-content.sidebar-open {
+    margin-left: 250px; 
+  }
+  
+  .main-content.sidebar-closed {
+    margin-left: 60px; 
+    padding: 0;
+    h2{
+      margin-left: 80px;
+    }
+    p{
+      margin-left: 80px;
+    }
+  }

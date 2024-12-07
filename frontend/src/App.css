@@ -1,0 +1,53 @@
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.topbar {
+  background-color: var(--navbar-background);
+}
+
+.sidebar {
+  background-color: var(--sidebar-background);
+  color: var(--sidebar-text-color);
+}
+
+.App {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.custom-navbar {
+  background-color: var(--navbar-background);
+}
+
+.theme-toggle {
+  cursor: pointer;
+  color: var(--icon-color);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #f0f7fd;
+}
+
+
+
+
+
+
+
+
+
+

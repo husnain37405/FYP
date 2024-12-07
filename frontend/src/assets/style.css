@@ -1,0 +1,56 @@
+/* Styles for the Users component */
+
+/* Form Styles */
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-button {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  /* Table Styles */
+  .table-container {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+  }
+  
+  .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 123, 255, 0.05);
+  }
+  

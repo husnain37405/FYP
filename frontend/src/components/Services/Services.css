@@ -1,0 +1,127 @@
+/*Services.css-Starts*/
+.services-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0px 0;
+  }
+  
+  .background-image {
+    border-radius: 50px;
+    background-color: #3368c6;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+    z-index: 0;
+    object-fit: cover;
+  }
+  
+  .inner-wrapper-services {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    z-index: 1;
+  }
+  
+  .inner-container-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+    grid-gap: 20px; /* Adjust spacing between cards */
+    padding: 20px;
+    background-color: transparent !important;
+  }
+  
+  .service-card .icon {
+    color: #0e2555;
+    margin-top: 35px;
+    font-size: 80px;
+  }
+  
+  .service-card {
+    background-color: #adc3e8;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 40px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, padding 1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: auto;
+  }
+  
+  .inner-container-services .service-card p {
+    margin-top: 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #6e778c;
+    text-transform: none;
+    font-style: normal;
+  }
+  
+  .service-card h3 {
+    margin-top: 0;
+    color: #0e2555;
+  }
+  
+  .service-card:hover {
+    background-color: white;
+  }
+  
+  .heading-wrapper-services {
+    margin-top: 60px;
+    padding-left: 0px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .tagline {
+    display: inline-block;
+    font-size: 12px;
+    font-family: Outfit, sans-serif;
+    font-weight: 600;
+    color: #3368c6;
+    text-transform: uppercase;
+    font-style: normal;
+    background-color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .heading-wrapper-services h2 {
+    color: #fff;
+    margin: 0;
+    font-family: Sora, sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-style: normal;
+  }
+  
+  /* Responsive styles for max-width 768px */
+  @media (max-width: 768px) {
+    .services-container {
+      padding-bottom: 40px;
+    }
+  
+    .inner-container-services {
+      grid-template-columns: 1fr; /* Single column layout */
+    }
+  
+    .service-card {
+      margin: 20px 0;
+      min-height: auto; /* Allow height to adjust based on content */
+    }
+  }
+  /*Services.css-Ends*/

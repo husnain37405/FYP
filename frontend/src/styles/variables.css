@@ -1,0 +1,33 @@
+:root {
+  --background-color: #f0f2f5;
+  --text-color: #343a40;
+  --primary-color: #031b4e;
+  --navbar-background: #ffffff;
+  --sidebar-background: #ffffff;
+  --sidebar-text-color: #343a40;
+  --icon-color: #031b4e;
+  --button-background: #031b4e;
+  --button-text-color: #ffffff;
+  --card-background: #ffffff;
+  --card-text-color: #343a40;
+  --card-icon-color: #031b4e;
+  --card-border-color: #dee2e6;
+  --brand-text-color: #031b4e;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #bb86fc;
+  --navbar-background: #1f1f1f;
+  --sidebar-background: #1f1f1f;
+  --sidebar-text-color: #e0e0e0;
+  --icon-color: #bb86fc;
+  --button-background: #bb86fc;
+  --button-text-color: #121212;
+  --card-background: #2c2c2c;
+  --card-text-color: #e0e0e0;
+  --card-icon-color: #bb86fc;
+  --card-border-color: #3c3c3c;
+  --brand-text-color: #bb86fc;
+}

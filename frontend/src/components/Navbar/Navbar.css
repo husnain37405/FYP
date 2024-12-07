@@ -1,0 +1,550 @@
+/* nav {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.3s;
+    background-color: transparent;
+    /* background-color: #9EA6AC; */
+    /* background-color: #DECDF9; */
+    /* background-color: rgba(240, 237, 244, 0.4); 
+  } 
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    height: 50px;
+    width: 100%;
+    transition: height 0.3s;
+  }
+  .logo3 {
+    height: 40px;
+    width: 100%;
+    transition: height 0.3s;
+  }
+  
+  .navbar-menu ul {
+    list-style: none;
+    display: flex;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 1rem;
+    margin: 0;
+    transition: background-color 0.3s, border-radius 0.3s;
+  }
+  
+  .navbar-menu ul li {
+    margin: 0 1rem;
+    position: relative;
+  }
+  
+  .navbar-menu ul li:not(:first-child)::before {
+    content: "\2022";
+    color: rgb(51, 104, 198);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    left: -20px;
+  }
+  
+  .navbar-menu.open ul li::before {
+    content: none;
+  }
+  
+  .navbar-menu:not(.open) ul li:not(:first-child)::before {
+    content: "\2022";
+  }
+  
+  .navbar-menu ul li a {
+    color: #031b4e;
+    font-weight: 600;
+    font-size: 12px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  
+  .navbar-menu ul li a:hover {
+    color: rgb(51, 104, 198);
+  }
+  
+  .donate-btn {
+    background-color: #0e2555;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+  }
+  
+  .donate-btn::after {
+    content: 'Donate Now';
+  }
+  
+  .donate-btn:hover {
+    background-color: rgb(51, 104, 198);
+  }
+
+  .menu-toggle-btn {
+    background: none;
+    border: none;
+    color: #0e2555;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  .navbar-container {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .scrolled {
+    background-color: white !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .scrolled .navbar-menu ul {
+    background-color: white !important;
+    border-radius: 0 !important;
+  }
+  .navbar-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dashboard-btn {
+    background-color: #0e2555;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+  } */
+  
+/*   
+  @media (max-width: 1024px) {
+    .navbar-container {
+      width: 90%;
+    }
+  
+    .menu-toggle-btn {
+      display: block;
+      margin-right: 1rem;
+    }
+  
+    .navbar-menu {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 1rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+    }
+  
+    .navbar-menu.open {
+      display: block;
+    }
+  
+    .navbar-menu ul {
+      flex-direction: column;
+      padding: 0;
+      min-width: auto;
+      max-width: 250px;
+    }
+  
+    .navbar-menu ul li {
+      margin: 0;
+      padding: 10px 15px;
+      line-height: 1.8;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+  
+    .navbar-menu ul li:hover {
+      background-color: #e9f1f7;
+    }
+  
+    .navbar-menu ul li a {
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .navbar-container {
+      width: 65%;
+    }
+  
+    .menu-toggle-btn {
+      margin-right: 0;
+      font-size: 1.8rem;
+    }
+  
+    .navbar-menu ul {
+      min-width: 150px;
+      max-width: 180px;
+    }
+  
+    .navbar-menu ul li {
+      font-size: 14px;
+    }
+  
+    .navbar-menu ul li a {
+      font-size: 14px;
+    }
+  }
+  
+  
+  @media (min-width: 1025px) {
+    .navbar-menu {
+      display: flex !important;
+      position: static;
+      width: auto;
+      background-color: transparent;
+      box-shadow: none;
+    }
+  
+    .navbar-menu ul {
+      flex-direction: row;
+    }
+  
+    .navbar-menu ul li {
+      border-bottom: none;
+    }
+  
+    .navbar-menu ul li a {
+      padding: 0;
+    }
+  }
+  
+  @media (max-width: 580px) {
+    .donate-btn {
+      padding: 1rem 1.5rem;
+    }
+  
+    .donate-btn::after {
+      content: 'Donate';
+    }
+  
+    #back-to-top {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0);
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+      height: 50px;
+      width: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      transition: all 200ms linear;
+      background-color: white;
+    }
+    
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      height: 40px;
+    }
+    .navbar-left{
+      margin: 0;
+    }   
+  } */
+  nav {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.3s;
+    background-color: transparent;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .logo, .logo3 {
+    height: 50px;
+    transition: height 0.3s;
+  }
+  
+  .scrolled .logo {
+    height: 40px;
+  }
+  
+  .navbar-menu ul {
+    list-style: none;
+    display: flex;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 1rem;
+    margin: 0;
+    transition: background-color 0.3s, border-radius 0.3s;
+  }
+  
+  .navbar-menu ul li {
+    margin: 0 1rem;
+    position: relative;
+  }
+  
+  .navbar-menu ul li:not(:first-child)::before {
+    content: "\2022";
+    color: rgb(51, 104, 198);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    left: -20px;
+  }
+  
+  .navbar-menu ul li a {
+    color: #031b4e;
+    font-weight: 600;
+    font-size: 12px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  
+  .navbar-menu ul li a:hover {
+    color: rgb(51, 104, 198);
+  }
+  
+  .donate-btn, .dashboard-btn {
+    background-color: #0e2555;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+  }
+  
+  .donate-btn:hover, .dashboard-btn:hover {
+    background-color: rgb(51, 104, 198);
+  }
+  
+  .menu-toggle-btn {
+    background: none;
+    border: none;
+    color: #0e2555;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+  }
+  
+  .navbar-container {
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  .scrolled {
+    background-color: white !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scrolled .navbar-menu ul {
+    background-color: white !important;
+    border-radius: 0 !important;
+  }
+  
+  .navbar-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .donate-btn::after {
+    content: 'Donate Now';
+  }
+ @media (max-width: 996px){
+  .donate-btn::after {
+    content: 'Donate';
+  }
+ }
+  /* @media (max-width: 768px) {
+    .navbar-container {
+      width: 95%;
+    }
+  
+    .menu-toggle-btn {
+      display: block;
+    }
+  
+    .navbar-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transform: translateY(-200%);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .navbar-menu.open {
+      transform: translateY(0);
+    }
+  
+    .navbar-menu ul {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+    }
+  
+    .navbar-menu ul li {
+      margin: 0.5rem 0;
+    }
+  
+    .navbar-menu ul li:not(:first-child)::before {
+      content: none;
+    }
+  
+    .donate-btn, .dashboard-btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+    }
+ 
+  }
+  
+  @media (max-width: 480px) {
+
+    .logo, .logo3 {
+      height: 30px;
+    }
+  
+    .navbar-menu ul li a {
+      font-size: 10px;
+    }
+  
+    .donate-btn, .dashboard-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.8rem;
+    }
+  }
+   */
+
+   @media (max-width: 768px) {
+    .header-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .navbar-left {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: -40px;
+    }
+ 
+    .navbar-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  
+    .menu-toggle-btn {
+      margin-right: 10px;
+      display: block;
+    }
+  
+    .donate-btn, .dashboard-btn {
+      margin-left: 10px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  
+    .navbar-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transform: translateY(-200%);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .navbar-menu.open {
+      transform: translateY(0);
+    }
+  
+    .navbar-menu ul {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+    }
+  
+    .navbar-menu ul li {
+      margin: 0.5rem 0;
+    }
+  
+    .navbar-menu ul li:not(:first-child)::before {
+      content: none;
+    }
+  
+    .logo, .logo3 {
+      height: 40px;
+      transition: height 0.3s;
+    }
+  }
+  @media (max-width: 480px) {
+
+    .logo, .logo3 {
+      height: 30px;
+    }
+  
+    .navbar-menu ul li a {
+      font-size: 10px;
+    }
+  
+    .donate-btn, .dashboard-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.8rem;
+    }
+  }

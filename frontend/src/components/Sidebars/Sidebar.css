@@ -1,0 +1,90 @@
+/* .sidebar {
+  position: fixed;
+  top: 56px; 
+  height: calc(100% - 56px); 
+  width: 250px;
+  transition: width 0.3s;
+  background-color: var(--sidebar-background);
+  color: var(--sidebar-text-color);
+  z-index: 1000;
+  overflow: hidden;
+}
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar .nav-link {
+  color: var(--sidebar-text-color);
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: border-left-color 0.3s;
+
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+.sidebar .nav-link span {
+  display: inline-block;
+  margin-left: 20px;
+ 
+}
+
+.sidebar.collapsed .nav-link span {
+  display: none;
+}
+
+.sidebar .nav-link.active {
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+} */
+ /* Sidebar */
+.sidebar {
+  /* position: sticky; */
+  position: fixed;
+  top: 56px; /* Adjust this to the height of your topbar */
+  height: calc(100vh - 56px); /* Full height minus the height of the topbar */
+  width: 250px; /* Set the width of the sidebar */
+  transition: width 0.3s;
+  background-color: var(--sidebar-background);
+  color: var(--sidebar-text-color);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar .nav-link {
+  color: var(--sidebar-text-color);
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: border-left-color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+.sidebar .nav-link span {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.sidebar.collapsed .nav-link span {
+  display: none;
+}
+
+.sidebar .nav-link.active {
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+}
