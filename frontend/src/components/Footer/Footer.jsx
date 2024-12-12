@@ -70,7 +70,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="main-columns">
           <div className="intro">
-            <img onClick={handleClick} src="src/assets/images/logo.png" alt="Welfare Foundation Logo" className="footer-logo" />
+            <img onClick={handleClick} src="src/assets/images/logo.png" alt="Welfare Foundation Logo" className="logo" />
             <p className="intro-text">
               Nowshera Foundation Welfare: Committed to fostering a more equitable and just society,
               we tirelessly work towards improving the quality of life for underprivileged

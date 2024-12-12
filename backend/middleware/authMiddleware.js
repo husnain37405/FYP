@@ -9,15 +9,14 @@ export const isAuthenticatedUser = async (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-   
-    req.user = await User.findById(decoded.payload._id).select('name email roles'); // Fetch only required fields
+    req.user = await User.findById(decoded.payload._id).select('name email roles'); 
     if (!req.user) {
       return res.status(404).json({ message: 'User not found.' });
     }
-    // console.log('Authenticated user:', req.user); // Debugging
+    
     next();
   } catch (error) {
-    console.error('Authentication error:', error.message); // Debugging
+   
     next(error);
    
   }
@@ -32,7 +31,7 @@ export const authorizedUser = (...allowedRoles) => {
       next()
     };
   } catch (error) {
-    console.error('Authorization error:', error.message); // Debugging
+   
     next(error);
   }
 };

@@ -7,38 +7,33 @@ import './pages/Dashboard.css';
 import './components/Dashboard/DashboardCards.css';
 import './App.css';
 import './styles/variables.css';
-
-
+import { useLogoutUserMutation } from "./redux/features/auth/authApi"
 
 function App() {
   const [theme, setTheme] = useState('light');
  const {token} =useSelector((state)=>state.auth)
 const dispatch = useDispatch();
+const [logoutUser] = useLogoutUserMutation();
+
  useEffect(()=>{
  if(token){
   const {exp} = jwtDecode(token)
- const checkTokenValidity = ()=>{
+ const checkTokenValidity = async  ()=>{
   if(exp<Date.now()/1000){
     alert("Your session has Expired, Please login again to continue using APP")
-    dispatch(authLogout())
 
-  
-    dispatch(userApi.util.invalidateTags([])); 
-    dispatch(authApi.util.invalidateTags([]));
-    
-    setTimeout(() => {
-      dispatch(userApi.util.resetApiState());
-      dispatch(authApi.util.resetApiState());
-    }, 100);
-
-
-
+    try {
+      await logoutUser().unwrap(); // Trigger API logout mutation
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+    dispatch(authLogout());
    }
  }
  const interval = setInterval(checkTokenValidity, 3000)
  return () => clearInterval(interval);
  }
-}, [token, dispatch])
+}, [token, dispatch, logoutUser])
 
 
   useEffect(() => {

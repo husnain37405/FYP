@@ -1,4 +1,4 @@
-# Welfare Website - Final Year Project
+# Welfare Website 
 
 ## Overview
 This is a **Welfare Website** developed for my **Undergraduate Final Year Project**. The platform allows users to request and donate for welfare causes, with role-based access for **Admin**, **Donor**, and **Requester**. The system includes **user authentication**, **authorization**, and **dashboard tracking** of all users' activities. 

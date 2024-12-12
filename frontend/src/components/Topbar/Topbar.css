@@ -1,4 +1,4 @@
-/* .topbar-container {
+.topbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,6 +24,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  
 }
 
 .navbar-nav .nav-link {
@@ -47,9 +48,9 @@
 .navbar-nav .dropdown-menu .dropdown-item:hover {
   color: var(--primary-color);
 }
- */
 
- /* General Navbar styling
+
+ General Navbar styling
 .custom-navbar {
   background-color: var(--navbar-bg, #fff);
   padding: 10px 20px;
@@ -75,9 +76,10 @@
 
 .toggle-icon {
   font-size: 1.5rem;
+  margin-left: 4px !important;
 }
 
-/* Theme Toggle Styling /
+
 .theme-toggle {
   margin-right: 20px;
 }
@@ -87,7 +89,7 @@
   color: #fff;
 }
 
-/* Dropdown Menu /
+
 .topbar-dropdown .dropdown-toggle {
   color: var(--navbar-text-color, #333);
   font-size: 1rem;
@@ -109,7 +111,7 @@
   background-color: var(--dropdown-item-hover-bg, #f1f1f1);
 }
 
-/* Auth Links /
+
 .auth-links {
   display: flex;
   gap: 15px;
@@ -125,7 +127,7 @@
   color: #0056b3;
 }
 
-/* Mobile Responsiveness /
+
 @media (max-width: 768px) {
   .topbar-container {
     flex-direction: column;
@@ -144,137 +146,53 @@
   .navbar-brand {
     font-size: 1.2rem;
   }
-} */
-/* General Navbar Styling */
-.custom-navbar {
-  background-color: var(--navbar-bg, #fff);
-  padding: 10px 20px;
-  border-bottom: 1px solid var(--navbar-border, #ddd);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional, for slight shadow */
-  /* position: fixed;  Fix the navbar to the top of the screen */
-  position: fixed;
-  top: 0;  /* Ensure it's at the top of the screen */
-  left: 0;
-  right: 0;
-  z-index: 1000;  /* Ensure it stays above other content */
-  width: 100%;  /* Ensure the navbar takes up the full width */
-  padding-left: 20px;
-  padding-right: 20px;
- 
 }
+ /*^*/
 
-.topbar-container {
+
+
+ .user-pill {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px; /* Limit max width for larger screens */
-  margin: 0 auto; /* Center the content */
-}
-
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--navbar-text-color, #333);
-  text-decoration: none;
-  white-space: nowrap; /* Prevent brand from breaking into multiple lines */
-}
-
-.toggle-icon {
-  font-size: 1.5rem;
+  /* background: transparent; */
+  border: 1px solid #000;
+  border-radius: 50px;
+  padding: 5px 10px;
   cursor: pointer;
-  margin-right: 20px;
+  transition: all 0.3s ease;
+  background-color: rgba(229, 273, 255, 0.7);
 }
 
-.auth-links {
-  display: flex;
-  gap: 15px;
+.user-pill:hover {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  background-color: #e5edff;
+  
+} 
+
+.user-avatar {
+  /* width: 35px;
+  height: 35px; */
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 2px solid #000;
 }
 
-.auth-link {
-  text-decoration: none;
-  color: var(--link-color, #007bff);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.auth-link:hover {
-  color: #0056b3;
-}
-
-/* Dropdown Menu */
 .topbar-dropdown .dropdown-toggle {
-  color: var(--navbar-text-color, #333);
-  font-size: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 .topbar-dropdown .dropdown-menu {
   min-width: 200px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: var(--navbar-bg, #fff);
 }
 
 .topbar-dropdown .dropdown-item {
   font-size: 0.9rem;
-  color: var(--dropdown-item-color, #333);
-  padding: 10px 20px;
 }
-
-.topbar-dropdown .dropdown-item:hover {
-  background-color: var(--dropdown-item-hover-bg, #f1f1f1);
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .topbar-container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 0;
-  }
-
-  .navbar-brand {
-    font-size: 1.2rem;
-    margin-bottom: 10px; /* Ensure space between the brand and other elements */
-  }
-
-  .toggle-icon {
-    margin-left: 10px;
-    margin-right: 20px;
-  }
-
-  .auth-links {
-    width: 100%;
-    justify-content: flex-start;
-    margin-top: 10px;
-  }
-
-  .auth-link {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-}
-
-/* For very small screens (below 480px) */
-@media (max-width: 480px) {
-  .topbar-container {
-    padding: 8px 15px;
-  }
-
-  .navbar-brand {
-    font-size: 1.1rem;
-  }
-
-  .toggle-icon {
-    font-size: 1.3rem;
-  }
-
-  .auth-links {
-    margin-top: 10px;
-    flex-direction: column;
-  }
-
-  .auth-link {
-    padding: 6px 10px;
-    font-size: 0.85rem;
-  }
+.dropdown-icon{
+  margin-right: 15px !important;
+  color:rgb(93, 93, 93)
 }

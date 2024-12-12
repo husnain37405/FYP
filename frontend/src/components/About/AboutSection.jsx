@@ -31,12 +31,12 @@ const AboutSection = () => {
 
   return (
     <section className="about-us">
-      <div className="about-content-wrapper">
+      <div className="about-wrapper">
         <div className="about-content">
           <div className="about-header">
-            <span className="about-label">About Nowshera Trust </span>
-            {/* <div className="about-heading">Nowshera Trust: Your Partner in Care</div> */}
-            <div className="about-heading">Dedicated to Positive Impact</div>
+            <span className="about-label">About Us</span>
+            {/* <div className="about-heading">Dedicated to Positive Impact</div> */}
+            <div className="about-heading">Turning Compassion into Action</div>
             <p>At Nowshera Foundation, we revolutionize welfare services to meet diverse community needs. Our
               innovative solutions streamline operations for precision and efficiency, maximizing care. Our
               mission is to exceed expectations with tailored, seamless solutions.</p>

@@ -1,8 +1,4 @@
-// const Request = require('../modules/requestSchema');  // Ensure correct path
-// const Project = require('../modules/projectSchema');  // Ensure correct path
-// const CurrentAccount = require('../modules/currentAccountSchema');  // Ensure correct path
 import Request from "../models/requestSchema.js"
-// import Project from "../modules/projectSchema"
 import CurrentAccount from "../models/currentAccountSchema.js"
 const getAllRequests = async (req, res) => {
     try {
@@ -38,19 +34,16 @@ const getAllRequests = async (req, res) => {
     }
 };
 
-// Fetching all requests, accessible by only the requester's own requests
 const getRequestersRequest = async (req, res) => {
     try {
-        // const requesterId = req.user._id;
-           const requesterId = req.user._id.toString();//I converted it to strong to check it
-        // Fetch requests by requester and aggregate counts
+        const requesterId = req.user._id.toString();//I converted it to string to check it
         const [requests, totalAccepted, totalPending, totalRejected] = await Promise.all([
-            Request.find({ userId: requesterId }) // Fetch all requests
-                .populate('projectId', 'title') // Populate projectId field with title from Project model
+            Request.find({ userId: requesterId })
+                .populate('projectId', 'title')
                 .exec(),
-            Request.countDocuments({ userId: requesterId, status: "Accepted" }), // Count accepted requests
-            Request.countDocuments({ userId: requesterId, status: "Pending" }), // Count pending requests
-            Request.countDocuments({ userId: requesterId, status: "Rejected" }), // Count rejected requests
+            Request.countDocuments({ userId: requesterId, status: "Accepted" }),
+            Request.countDocuments({ userId: requesterId, status: "Pending" }),
+            Request.countDocuments({ userId: requesterId, status: "Rejected" }),
         ]);
 
         if (requests.length > 0) {
@@ -85,11 +78,11 @@ const getRequestersRequest = async (req, res) => {
         res.status(500).json({ message: 'Server Error', error: err.message });
     }
 };
-// Deleting a specific request by requester
+
 const deleteRequest = async (req, res) => {
     try {
-        const requesterId = req.user._id.toString(); 
-        const { id } = req.params; 
+        const requesterId = req.user._id.toString();
+        const { id } = req.params;
 
         const request = await Request.findOne({ _id: id, userId: requesterId });
 
@@ -110,82 +103,35 @@ const deleteRequest = async (req, res) => {
 };
 
 
-// Fetch total number of requests
 const getRequestsStats = async (req, res, next) => {
     try {
-      const totalRequests = await Request.countDocuments(); // Count all request documents
-      res.status(200).json({ totalRequests }); // Respond with the count
+        const totalRequests = await Request.countDocuments();
+        res.status(200).json({ totalRequests });
     } catch (error) {
-      next(error); // Pass any error to the error handler middleware
+        next(error);
     }
-  };
-  
+};
 
-// const updateReq = async (req, res) => {
-//     try {
-//         const { status, rejectreason, amount } = req.body;  // Get amount from request body
-        
-//         const { id: requestId } = req.params;  
-
-//         // Find the request by ID and update its status and rejectreason (if provided)
-//         const result = await Request.findByIdAndUpdate(
-//             requestId,
-//             { status, rejectreason },  // Update status and rejectreason fields
-//             { new: true }  
-//         );
-
-//         // Check if the request was found
-//         if (!result) {
-//             return res.status(404).json({ message: "Request not found" });
-//         }
-
-//         // If the request is accepted, subtract the requested amount from the totalDonatedAmount
-//         if (status === 'Accepted') {
-            
-//             // Convert donatedAmount to Number
-//         const amountToAdd = Number(amount);
-
-//         // Find the current account and update totalDonatedAmount
-//         const updatedAccount = await CurrentAccount.findOneAndUpdate(
-//             {},  // Find the first document (since we want only one)
-//             { $inc: { totalPaidAmount: amountToAdd } },  // Increment totalDonatedAmount
-//             { new: true, upsert: true }  // Create if it doesn't exist
-//         );
-//             // Return the result of the request and the updated account information
-//             return res.json({ request: result, account: updatedAccount, message: "Request updated and account adjusted." });
-//         }
-
-//         // If the request is not accepted, just return the updated request
-//         res.json({ request: result, message: "Request updated." });
-
-//     } catch (err) {
-//         console.error(err);  
-//         res.status(500).json({ message: "Error updating request", error: err.message });
-//     }
-// };
-const updateReq = async (req, res) => { 
+const updateReq = async (req, res) => {
     try {
-        const { status, rejectReason } = req.body; // Extract only allowed fields
-        const { id: requestId } = req.params;    // Get request ID from params
+        const { status, rejectReason } = req.body;
+        const { id: requestId } = req.params;
 
-        // Update only status and rejectReason
         const updatedRequest = await Request.findByIdAndUpdate(
             requestId,
             { status, rejectReason },
             { new: true, runValidators: true }
         );
 
-        // If the request is not found
         if (!updatedRequest) {
             return res.status(404).json({ message: "Request not found" });
         }
 
-        // Adjust account if status is 'Accepted'
         if (status === 'Accepted') {
-            const amountToAdd = Number(updatedRequest.amount); // Use the existing request amount
+            const amountToAdd = Number(updatedRequest.amount);
 
             const updatedAccount = await CurrentAccount.findOneAndUpdate(
-                {}, // Assuming a single document for account tracking
+                {},
                 { $inc: { totalPaidAmount: amountToAdd } },
                 { new: true, upsert: true }
             );
@@ -207,14 +153,14 @@ const updateReq = async (req, res) => {
 
 const addRequest = async (req, res) => {
     try {
-        const userId = req.user?.id; // Assuming req.user is populated via middleware
+        const userId = req.user?.id;
         if (!userId) {
             return res.status(400).json({ message: "User ID is missing or invalid" });
         }
 
         const request = new Request({
             ...req.body,
-            userId, // Set userId from the authenticated user
+            userId,
             status: 'Pending',
         });
 
@@ -226,36 +172,18 @@ const addRequest = async (req, res) => {
     }
 };
 
-
-// const addRequest = async (req, res) => {
-//     try {
-//         const request = new Request({
-//             ...req.body,
-//             status: 'Pending',  // Set status to 'pending'
-//         });
-
-//         let result = await request.save();
-//         res.json(result);
-//     } catch (err) {
-//         console.error(err);  // Log the error
-//         res.status(500).json({ message: "Error adding request", error: err.message });
-//     }
-// };
-
 const requesterUpdateReq = async (req, res) => {
     try {
         const { description, amount } = req.body;
-        console.log( req.body)
-        const { id: requestId } = req.params;   
+        console.log(req.body)
+        const { id: requestId } = req.params;
 
-        // Update only description and amount
         const updatedRequest = await Request.findByIdAndUpdate(
             requestId,
             { description, amount },
             { new: true, runValidators: true }
         );
 
-        // If the request is not found
         if (!updatedRequest) {
             return res.status(404).json({ message: "Request not found" });
         }

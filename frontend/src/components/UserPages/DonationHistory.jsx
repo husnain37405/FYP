@@ -50,8 +50,10 @@ import React, { useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import { useGetDonorDonationsQuery } from '../../redux/features/donation/donationApi';
 import DonationHistoryModal from './Modals/DonationHistoryModal';
-
+import { useSelector } from 'react-redux';
 const DonationHistory = () => {
+ const userId = useSelector((state)=>state.auth.user._id)
+ console.log("User Id from Donations History",userId)
   const { data: donations = [], isLoading, error } = useGetDonorDonationsQuery();
   const [showModal, setShowModal] = useState(false);
   const [currentDonation, setCurrentDonation] = useState(null);

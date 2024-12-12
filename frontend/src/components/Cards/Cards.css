@@ -404,3 +404,25 @@
   }
  
 }
+@media (max-width: 480px){
+  .mission-card {
+    max-width: 95%; 
+  }
+  .img-container {
+    margin: 0;
+    padding: 0;
+  }
+ 
+  
+  .img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 315px;
+    height: 95%;
+    /* height: 80%; */
+    object-fit: cover;
+    /* border-radius: 15px; */
+    border-radius: 15px 15px 0 0; 
+  }
+}

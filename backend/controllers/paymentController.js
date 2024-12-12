@@ -1,21 +1,11 @@
-// const Stripe = require('stripe');
-// const express = require('express');
 import Stripe from "stripe"
-import express from "express"
 import "dotenv/config.js";
-import fs from "fs"
-// import dotenv from 'dotenv';
-// dotenv.config()
-// require('dotenv/config');
-// const fs = require('fs');
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 
 const stripeInvestmentPayment = async (req, res) => {
     const { amount, userId, accountId, investmentType, transactionType } = req.body;
 
-    // Validate transaction type and amount
     if (!['Deposit', 'Withdrawal'].includes(transactionType)) {
         return res.status(400).json({ error: 'Invalid transaction type. Must be "deposit" or "withdrawal".' });
     }
@@ -39,8 +29,8 @@ const stripeInvestmentPayment = async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: `http://localhost:3000/investment-success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `http://localhost:3000/investment-cancel`,
+            success_url: `http://localhost:5173/investment-success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `http://localhost:5173/investment-cancel`,
             metadata: { userId, accountId, investmentType, transactionType },
         });
 
@@ -52,9 +42,7 @@ const stripeInvestmentPayment = async (req, res) => {
     }
 };
 
-// module.exports = {
-//     stripeInvestmentPayment
-//   };
+
 export {
     stripeInvestmentPayment
-  };
+};

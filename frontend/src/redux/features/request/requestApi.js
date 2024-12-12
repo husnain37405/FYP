@@ -3,40 +3,39 @@ const BASE_URL =  'http://localhost:5000/api/requests';
 export const requestApi = createApi({
   reducerPath: 'requestApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL, // Base URL for requests routes
-    credentials: 'include', // Include cookies if needed
+    baseUrl: BASE_URL, 
+    credentials: 'include', 
   }),
   tagTypes: ['Requests'],
   endpoints: (builder) => ({
-    // ** Add a New Request **
+   
     addRequest: builder.mutation({
       query: (requestData) => ({
-        url: '/add', // POST /requests/add
+        url: '/add', 
         method: 'POST',
         body: requestData,
       }),
       invalidatesTags: ['Requests'],
     }),
 
-    // ** Get All Requests **
+   
     getAllRequests: builder.query({
-      query: () => '/all', // GET /requests/all
+      query: () => '/all', 
       providesTags: ['Requests'],
     }),
     
-    // ** Fetch Requests Stats/Counts **
     getRequestsStats: builder.query({
-      query: () => '/stats',  // GET /requests/stats
+      query: () => '/stats',  
       providesTags: ['Requests'],
     }),
    getRequesterRequests: builder.query({
-    query: () => '/requesterRequests', // get requesters own requests only
+    query: () => '/requesterRequests', 
     providesTags: ['Requests'],
    }),
-    // ** Update a Request by ID (Partial Update) **
+    
     updateRequest: builder.mutation({
       query: ({ id, requestData }) => ({
-        url: `/update/${id}`, // This is an Admin Update(only update status+ rejestReason)
+        url: `/update/${id}`, 
         method: 'PATCH',
         body: requestData,
       }),
@@ -45,7 +44,7 @@ export const requestApi = createApi({
 
     updateRequesterRequest: builder.mutation({
       query: ({ id, requestData }) => ({
-        url: `/requesterRequestUpdate/${id}`, // PATCH This is an Requester Update(only update Amount+ description)
+        url: `/requesterRequestUpdate/${id}`, 
         method: 'PATCH',
         body: requestData,
       }),
