@@ -14,6 +14,53 @@ export const getAllUsers = async (req, res, next) => {
   }
 };
 
+export const updateUserByAdmin = async (req, res) => {
+  try {
+    console.log(req.params, req.body, "This is req. param from Backend from updateUserByAdmin"); 
+    const  {id}  = req.params; 
+    const { name, email, contact, roles, avatar } = req.body;
+    
+    // Find the user by id
+    let user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update fields if present in the request
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (contact) user.contact = contact;
+    if (roles) user.roles = roles;
+
+    if (avatar) {
+      try {
+          const avatarUrl = typeof avatar === "string" ? avatar : avatar.secure_url;
+          const uploadedAvatarUrl = await imageUploading({
+              image: avatarUrl,
+              folder: "users",
+          });
+          user.avatar = { secure_url: uploadedAvatarUrl };
+      } catch (uploadError) {
+          console.error("Error uploading avatar:", uploadError.message);
+          return res.status(500).json({ message: "Failed to upload avatar." });
+      }
+  }
+  
+
+    // Save the updated user to the database
+    const updatedUser = await user.save();
+
+    return res.status(200).json({
+      message: "User updated successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error("Error updating user:", error.message);
+    return res.status(500).json({ message: "Server error, failed to update user." });
+  }
+};
+
+
 
 export const getUserStats = async (req, res, next) => {
   try {

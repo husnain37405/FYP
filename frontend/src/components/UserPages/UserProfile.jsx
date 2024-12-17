@@ -6,21 +6,20 @@ import { useGetUserDetailsQuery } from '../../redux/features/user/userApi';
 const UserProfile = () => {
   const navigate = useNavigate();
   const handleEditClick = () => {
-    navigate('/edit-profile'); 
+    navigate('/edit-profile');
   };
   const userId = useSelector((state) => state.auth.user.id)
   const role = useSelector((state) => state.auth.currentRole);
   const { data: user, error, isLoading } = useGetUserDetailsQuery(userId);
-  console.log(user)
-  console.log(error)
+  console.log(user, "User From UserProfile")
+  console.log(error, "Error From UserProfile")
   return (
     <Container className="mt-5">
       <Row className="justify-content-center">
         <Col md={8} lg={6}>
           <Card className="p-4 shadow-lg">
             <div className="text-center">
-            <img
-                // src={user?.avatar?.secure_url || `http://localhost:5000/static/uploads/users/${user.avatar?.secure_url?.split('/').pop()}`}
+              <img
                 src={user?.avatar?.secure_url || 'http://localhost:5000/static/uploads/users/default.png'}
                 alt="User Avatar"
                 className="rounded-circle mb-3"

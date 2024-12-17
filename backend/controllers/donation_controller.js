@@ -10,7 +10,6 @@ const getAllDonations = async (req, res) => {
             .populate('projectId', 'title') 
             .populate('userId', 'name') 
             .exec();
-            console.log(" All Donations forn donatio controller: ", donations)
         if (donations.length > 0) {
             let modifiedDonations = donations.map((donation) => ({
                 _id: donation._id,

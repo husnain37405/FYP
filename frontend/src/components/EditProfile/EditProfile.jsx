@@ -11,7 +11,7 @@ const EditProfile = () => {
   const [formData, setFormData] = useState({
     name: user?.name || '',
     contact: user?.contact || '',
-    avatar: '', // Image will be handled as a file or base64 string
+    avatar: '', 
   });
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);

@@ -63,6 +63,7 @@ const Dashboard = ({ toggleTheme, theme }) => {
         <Route path="adminreports" element={<AdminReports />} />
         <Route path="current-month" element={<CurrentMonth />} />
         <Route path="profile" element={<Profile />} />
+        <Route path='/edit-profile' element={<EditProfile/>}/>
       </Route>
 
       {/* Donor and Requester Pages */}

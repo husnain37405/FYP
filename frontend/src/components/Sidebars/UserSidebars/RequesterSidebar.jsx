@@ -18,7 +18,7 @@ const RequesterSidebar = ({ isOpen }) => {
     </Nav.Link> */}
       <Nav.Link as={Link} to="/AddRequest">
     <FaProjectDiagram className="me-2" />
-      {isOpen && <span>Add Requestes</span>}
+      {isOpen && <span>Add a Request</span>}
     </Nav.Link>
      <Nav.Link as={Link} to="/requestHistory">
       <FaProjectDiagram className='me-2'/>

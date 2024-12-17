@@ -5,34 +5,35 @@ import User from '../models/userSchema.js';
 
 dotenv.config();
 
-// ** Register New User **
+
 export const registerNewUser = async (req, res, next) => {
   try {
-    const { name, email, contact, password, role } = req.body;
+    // const { name, email, contact, roles, password, avatar } = req.body;
+    // if (!roles || roles.length === 0) {
+    //   return res.status(400).json({ message: "Invalid or missing role." });
+    // }
 
-    // Role validation
+    const { name, email, contact, password, role } = req.body;
     const validRoles = ['Donor', 'Requester', 'Admin'];
     if (!role || !validRoles.includes(role)) {
       return next(new Error('Invalid or missing role.'));
     }
-
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       if (existingUser.roles.includes(role)) {
         return next(new Error(`Already registered as ${role}.`));
       }
 
-      // Add new role if user exists
+      
       existingUser.roles.push(role);
       await existingUser.save();
       return res.status(200).json({ message: `Role ${role} added to your account.` });
     }
 
-    // Hash the password
+    
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user
+    
     const newUser = new User({
       name,
       email,
@@ -40,6 +41,15 @@ export const registerNewUser = async (req, res, next) => {
       password: hashedPassword,
       roles: [role],
     });
+
+    // const newUser = await User.create({
+    //   name,
+    //   email,
+    //   contact,
+    //   roles, 
+    //   password : hashedPassword,
+    //   avatar,
+    // });
 
     const savedUser = await newUser.save();
     res.status(201).json({ message: 'User registered successfully!', user: savedUser });

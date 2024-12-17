@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen }) => {
         </Nav.Link>
         <Nav.Link as={Link} to="/addProject">
           <FaProjectDiagram className="me-2" />
-          {isOpen && <span>Add Project</span>}
+          {isOpen && <span>Add New Project</span>}
         </Nav.Link>
         <Nav.Link as={Link} to="/projects">
           <FaProjectDiagram className="me-2" />
