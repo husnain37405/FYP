@@ -14,7 +14,7 @@ const UserProfile = () => {
   console.log(user, "User From UserProfile")
   console.log(error, "Error From UserProfile")
   return (
-    <Container className="mt-5">
+    <Container >
       <Row className="justify-content-center">
         <Col md={8} lg={6}>
           <Card className="p-4 shadow-lg">

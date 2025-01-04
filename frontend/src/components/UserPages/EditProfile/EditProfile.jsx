@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useUpdateUserMutation } from  '../../redux/features/user/userApi';
+import { useUpdateUserMutation } from  '../../../redux/features/user/userApi';
 import { Form, Button, Container, Alert, Spinner, Row, Col } from 'react-bootstrap';
 
 const EditProfile = () => {
@@ -46,11 +46,11 @@ const EditProfile = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container >
       <Row className="justify-content-center">
         <Col md={8} lg={6}>
           <div className="profile-container p-4 rounded shadow-lg">
-            <h2 className="text-center mb-4">User Profile</h2>
+            {/* <h2 className="text-center mb-4">User Profile</h2> */}
             {message && <Alert variant="success">{message}</Alert>}
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>

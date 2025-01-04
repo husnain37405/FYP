@@ -32,7 +32,8 @@ import RequesterTable from '../components/Pages/Tables/RequesterTable'
 import AddProject from '../components/Pages/AddProject';
 import RequestHistory from '../components/UserPages/RequestHistory';
 import AddRequest from '../components/UserPages/AddRequest';
-import EditProfile from '../components/EditProfile/EditProfile';
+import EditProfile from '../components/UserPages/EditProfile/EditProfile';
+import AdminProfileEdit from '../components/Pages/AdminProfileEdit/AdminProfileEdit'
 
 const Dashboard = ({ toggleTheme, theme }) => {
   return (
@@ -63,7 +64,7 @@ const Dashboard = ({ toggleTheme, theme }) => {
         <Route path="adminreports" element={<AdminReports />} />
         <Route path="current-month" element={<CurrentMonth />} />
         <Route path="profile" element={<Profile />} />
-        <Route path='/edit-profile' element={<EditProfile/>}/>
+        <Route path='/adminProfileEdit' element={<AdminProfileEdit/>}/>
       </Route>
 
       {/* Donor and Requester Pages */}

@@ -1,0 +1,9 @@
+.profile-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .profile-container h2 {
+    color: #333;
+    font-weight: bold;
+  }

@@ -6,7 +6,7 @@ import { useGetUserDetailsQuery } from '../../redux/features/user/userApi';
 const Profile = () => {
   const navigate = useNavigate();
   const handleEditClick = () => {
-    navigate('/edit-profile');
+    navigate('/adminProfileEdit');
   };
   const userId = useSelector((state) => state.auth.user.id)
   const role = useSelector((state) => state.auth.currentRole);
@@ -14,7 +14,7 @@ const Profile = () => {
   console.log(user, "User From UserProfile")
   console.log(error, "Error From UserProfile")
   return (
-    <Container className="mt-5">
+    <Container >
       <Row className="justify-content-center">
         <Col md={8} lg={6}>
           <Card className="p-4 shadow-lg">

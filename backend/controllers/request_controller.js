@@ -19,7 +19,7 @@ const getAllRequests = async (req, res) => {
                     description: request.description,
                     amount: request.amount,
                     status: request.status,
-                    rejectreason: request.rejectReason || "N/A",
+                    rejectReason: request.rejectReason || "N/A",
                     date: request.date
                 };
             });
@@ -54,7 +54,7 @@ const getRequestersRequest = async (req, res) => {
                 description: request.description,
                 amount: request.amount,
                 status: request.status,
-                rejectreason: request.rejectReason || "N/A",
+                rejectReason: request.rejectReason || "N/A",
                 date: request.date,
             }));
 
@@ -119,7 +119,11 @@ const updateReq = async (req, res) => {
 
         const updatedRequest = await Request.findByIdAndUpdate(
             requestId,
-            { status, rejectReason },
+            { 
+                status, 
+                rejectReason: status === 'Rejected' && !rejectReason ? 'N/A' : rejectReason
+
+            },
             { new: true, runValidators: true }
         );
 
