@@ -209,13 +209,47 @@ const Topbar = ({ toggleSidebar }) => {
                   <span className="topbar-username d-none d-md-inline ms-2">
                     {userDetails?.name || 'User'}
                   </span>
-                  {/* Avatar on the right */}
-                  <Image
+                  
+                  {/* <Image
                     src={userDetails?.avatar?.secure_url || 'default-avatar-url'}
                     roundedCircle
                     className="user-avatar"
                     style={{ width: '40px', height: '40px', objectFit: 'cover' }}
-                  />
+                  /> */}
+                  {userDetails?.avatar?.secure_url && userDetails.avatar.secure_url !== 'http://localhost:5000/static/uploads/users/default.png'? (
+                <Image
+                  src={userDetails?.avatar?.secure_url}
+                  roundedCircle
+                  className="user-avatar"
+                  style={{
+                    width: '40px',
+                    height: '40px', 
+                    objectFit: 'cover',
+                  }}
+                />
+              ) : (
+                <div
+                  className="avatar-placeholder"
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '40px', 
+                    height: '40px',
+                    borderRadius: '50%',
+                    backgroundColor: '#4285F4', 
+                    color: 'white', 
+                    fontSize: '18px', 
+                    fontWeight: 'bold', 
+                    textAlign: 'center', 
+                    lineHeight: '40px',
+                    marginRight: '5px',
+                  }}
+                >
+                  {userDetails?.name?.[0]?.toUpperCase() || ''} 
+                  
+                </div>
+              )}
                 </div>
               }
               id="offcanvasNavbarDropdown"

@@ -19,12 +19,46 @@ const UserProfile = () => {
         <Col md={8} lg={6}>
           <Card className="p-4 shadow-lg">
             <div className="text-center">
-              <img
+              {/* <img
                 src={user?.avatar?.secure_url || 'http://localhost:5000/static/uploads/users/default.png'}
                 alt="User Avatar"
                 className="rounded-circle mb-3"
                 style={{ width: '150px', height: '150px', objectFit: 'cover' }}
-              />
+              /> */}
+              {user?.avatar?.secure_url && user.avatar.secure_url !== 'http://localhost:5000/static/uploads/users/default.png'? (
+                <img
+                  src={user?.avatar?.secure_url}
+                  roundedCircle
+                  className="user-avatar"
+                  style={{
+                    width: '150px',
+                    height: '150px', 
+                    objectFit: 'cover',
+                  }}
+                />
+              ) : (
+                <div
+                  className="avatar-placeholder"
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '100px', 
+                    height: '100px',
+                    borderRadius: '50%',
+                    backgroundColor: '#4285F4', 
+                    color: 'white', 
+                    fontSize: '38px', 
+                    fontWeight: 'bold', 
+                    textAlign: 'center', 
+                    lineHeight: '40px',
+                    marginRight: '5px',
+                  }}
+                >
+                  {user?.name?.[0]?.toUpperCase() || ''} 
+                  
+                </div>
+              )}
             </div>
             <h3 className="text-center mb-4">{user?.name || 'User Name'}</h3>
             <ul className="list-group list-group-flush">
