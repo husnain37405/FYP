@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -37,7 +38,7 @@ const Hero = () => {
       <h2>Committed to transforming lives through unwavering compassion and support</h2>
       <p>Join us in making a difference in people's lives through compassion and support <br />lives through compassion and support.</p>
       <div className="hero-content-link">
-        <a href="#">Get Involved</a>
+        <Link to={"services"} >Get Involved</Link>
       </div>
     </div>
     {/* Social Media Icons moved here */}

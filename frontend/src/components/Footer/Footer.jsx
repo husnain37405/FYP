@@ -86,7 +86,7 @@ const Footer = () => {
             <div className="info-columns">
               <div className="info">
                 <h2>Contact Info</h2>
-                <p><i className="fas fa-phone-alt"></i> +1 (773) 904-9008</p>
+                <p><i className="fas fa-phone-alt"></i> +92 346 0547007</p>
                 <p><i className="fas fa-envelope"></i> info@welfarefoundation.com</p>
                 <p><i className="fas fa-clock"></i> Office Hours: 9AM - 5PM (GMT-6, CST)<br />Monday - Friday</p>
                 <div className="social-media">
@@ -97,7 +97,8 @@ const Footer = () => {
               </div>
               <div className="address">
                 <h2>Our Address</h2>
-                <p><i className="fas fa-map-marker-alt"></i> 4401 N Keeler Ave<br />Chicago, IL 60630</p>
+                {/* <p><i className="fas fa-map-marker-alt"></i> 4401 N Keeler Ave<br />Chicago, IL 60630</p> */}
+                <p><i className="fas fa-map-marker-alt"></i> Post Office Ziarat Masoom, Village Nowshera, Tehsil <br />Havelian, Abbottabad, Pakistan</p>
               </div>
             </div>
           </div>

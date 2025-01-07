@@ -19,6 +19,7 @@ const RequesterSignup = () => {
   const [contact, setContact] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
   const formRef = useRef(null);
 
@@ -26,6 +27,21 @@ const RequesterSignup = () => {
 
   const location = useLocation();
   const role = location.state?.role;
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+
+    // Password validation rules
+    const passwordRequirements = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRequirements.test(newPassword)) {
+      setPasswordError(
+        'Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.'
+      );
+    } else {
+      setPasswordError('');
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -178,7 +194,7 @@ const RequesterSignup = () => {
                   }}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   label="Password"
                   type="password"
@@ -196,7 +212,28 @@ const RequesterSignup = () => {
                     },
                   }}
                 />
-              </Grid>
+              </Grid> */}
+               <Grid item xs={12} sm={6}>
+                              <TextField
+                                label="Password"
+                                type="password"
+                                fullWidth
+                                margin="normal"
+                                variant="outlined"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                required
+                                error={!!passwordError}
+                                helperText={passwordError}
+                                sx={{
+                                  '& .MuiInputLabel-root': { color: '#031b4e' },
+                                  '& .MuiOutlinedInput-root': {
+                                    borderRadius: 25,
+                                    '&:hover fieldset': { borderColor: '#62a9d2' },
+                                  },
+                                }}
+                              />
+                            </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="Confirm Password"
