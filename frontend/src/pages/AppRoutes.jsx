@@ -35,7 +35,7 @@ import AddRequest from '../components/UserPages/AddRequest';
 import EditProfile from '../components/UserPages/EditProfile/EditProfile';
 import AdminProfileEdit from '../components/Pages/AdminProfileEdit/AdminProfileEdit'
 
-const Dashboard = ({ toggleTheme, theme }) => {
+const AppRoutes = ({ toggleTheme, theme }) => {
   return (
     <Routes>
       <Route element={<RootLayout/>}>
@@ -85,4 +85,4 @@ const Dashboard = ({ toggleTheme, theme }) => {
   );
 };
 
-export default Dashboard;
+export default AppRoutes;

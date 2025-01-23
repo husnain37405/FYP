@@ -51,7 +51,7 @@ const Services = () => {
             <div key={project._id} className="service-card">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              <p>{project.status}</p>
+              {/* <p>{project.status}</p> */}
             </div>
           ))}
         </div>

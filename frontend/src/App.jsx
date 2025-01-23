@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { jwtDecode } from "jwt-decode";
 import { useDispatch, useSelector } from 'react-redux';
 import { authLogout } from './redux/features/auth/authSlice';
-import Dashboard from './pages/Dashboard';
+import AppRoutes from './pages/AppRoutes';
 import './pages/Dashboard.css';
 import './components/Dashboard/DashboardCards.css';
 import './App.css';
@@ -47,7 +47,7 @@ const [logoutUser] = useLogoutUserMutation();
   return (
     <>
     <div className={`App ${theme}`}>
-      <Dashboard toggleTheme={toggleTheme} theme={theme} />
+      <AppRoutes toggleTheme={toggleTheme} theme={theme} />
     </div>
     </>
   );
